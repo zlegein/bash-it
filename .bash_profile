@@ -32,10 +32,17 @@ export SCM_CHECK=true
 
 #################### CUSTOM ###########################
 
+# export NODE_7_ICU_DATA=/Users/zach/.nvm/versions/node/v7.10.0/lib/node_modules/full-icu
+
+# export NODE_8_ICU_DATA=/Users/zach/.nvm/versions/node/v8.1.2/lib/node_modules/full-icu
+
 #latest JDK 7 by Oracle
 export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home
 #latest preview JDK 8 by Oracle
 export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home
+
+#default NODE_ICU_DATA is  8
+# export NODE_ICU_DATA=$NODE_8_ICU_DATA
 
 #default JDK is  8
 export JAVA_HOME=$JAVA_7_HOME
@@ -47,8 +54,9 @@ export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=512m"
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
-export NVM_DIR="/Users/zach/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/zach/.sdkman"
