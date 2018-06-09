@@ -51,11 +51,14 @@ dxGoto() {
     shui)
       DIR="dx-shared-ui"
       ;;
+    comui)
+      DIR="dx-components-ui"
+      ;;
     chui)
       DIR="dx-checkin-ui"
       ;;
     rui)
-      DIR="dx-res-ui"
+      DIR="dx-reservations-ui"
       ;;
     api)
       DIR="dx-api"
