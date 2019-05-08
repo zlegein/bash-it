@@ -5,6 +5,7 @@ alias synology="ssh -p72 admin@legein.synology.me"
 alias stash='git stash'
 alias unstash='git stash pop'
 alias gdiff='git diff'
+alias gpass='git config --global credential.helper osxkeychain'
 alias gsearch=searchGitLogs
 alias gdel=removeBranchesWithPrefix
 alias gwdebug='echo hilton_gw_admin/GW@dm1nr0cks!'
@@ -17,6 +18,7 @@ alias hgwsd='gradle clean build appStartDebug -x test -x javadoc'
 alias hgws='gradle clean build appStart -x test -x javadoc'
 alias pulldx=refreshDXRepos
 alias dx=dxGoto
+alias storybook='http-server --ssl --cert ~/workspace/hilton/dx/tester/cert.pem --key ~/workspace/hilton/dx/tester/key.pem .book'
 alias dxk='docker rm -f $(docker ps -a -fname=dx* -q)'
 alias dxrmi='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")'
 alias dxnuke='docker rm -f $(docker ps -a -q) && docker rmi -f $(docker images -q)'
@@ -30,7 +32,7 @@ alias node7='export export NODE_ICU_DATA=$NODE_7_ICU_DATA && nvm use 7'
 
 
 export JAVA_7_HOME='/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home'
-export JAVA_8_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk/Contents/Home'
+export JAVA_8_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home'
 
 #Command line alias so we can switch to java8 or Java7
 alias java7='export JAVA_HOME=$JAVA_7_HOME'
@@ -51,8 +53,8 @@ dxGoto() {
     shui)
       DIR="dx-shared-ui"
       ;;
-    comui)
-      DIR="dx-components-ui"
+    scui)
+      DIR="dx-shared-components-ui"
       ;;
     chui)
       DIR="dx-checkin-ui"
@@ -68,6 +70,12 @@ dxGoto() {
       ;;
     mock)
       DIR="dx-mock-api"
+      ;;
+    aui)
+      DIR="dx-auth-ui"
+      ;;
+    gui)
+      DIR="dx-guest-ui"
       ;;
     *)
       DIR=""
